@@ -12,7 +12,7 @@ public class Hotel {
         this.rooms = new ArrayList<>();
     }
 
-    public void addRoom(Room room) {
+    public void addRoom (Room room) {
         for (Room unit: rooms) {
             if(unit.getNumber() == room.getNumber()) {
                 System.err.println("This room " + room.getNumber() + "already exists!");
@@ -22,4 +22,16 @@ public class Hotel {
 
         rooms.add(room);
     }
+
+    public void bookARoom (int number) {
+        for (Room unit: rooms) {
+            if (unit.isOccupied()) {
+                System.err.println("This room is occupied!");
+                return;
+            } else {
+                unit.toBook();
+            }
+        }
+    }
+    
 }
