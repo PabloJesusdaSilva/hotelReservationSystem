@@ -34,4 +34,14 @@ public class Hotel {
         }
     }
     
+    public void cancelReservation (int number) {
+        for (Room unit: rooms) {
+            if(!unit.isOccupied()) {
+                System.err.println("The reservation does not exist!");
+                return;
+            } else {
+                unit.cancelReservation();
+            }
+        }
+    }
 }
