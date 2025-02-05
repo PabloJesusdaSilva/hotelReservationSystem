@@ -16,15 +16,25 @@ public class Room {
     }
 
     public void toBook () {
-        this.occupied = true;    
+        if(!occupied) {
+            occupied = true;
+            System.out.println("The room " + number + " successfully booked!");    
+        } else {
+            System.err.println("Room already occupied");
+        }
     }
 
     public void cancelReservation() {
-        this.occupied = false;
+        if(occupied) {
+            occupied = false;
+            System.out.println("Reservation for room " + number + " successfully canceled");
+        } else {
+            System.err.println("The room is now available");
+        }
     }
 
     @Override
     public String toString() {
-        return "Book" + number + occupied;
+        return "Book | " + number + " | " + occupied;
     }
 }
